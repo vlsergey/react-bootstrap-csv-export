@@ -1,6 +1,6 @@
 # @vlsergey/react-bootstrap-csv-export
 [![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
+[![CI Status][ci-image]][ci-url]
 [![Downloads][downloads-image]][downloads-url]
 
 Ready-to-use components to export data as CSV. Provides not only core TypeScript functions, but also react-bootstrap form components that can be directly used in application.
@@ -55,7 +55,7 @@ export default function Demo (): JSX.Element {
 
 [npm-image]: https://img.shields.io/npm/v/@vlsergey/react-bootstrap-csv-export.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/@vlsergey/react-bootstrap-csv-export
-[travis-image]: https://travis-ci.com/vlsergey/react-bootstrap-csv-export.svg?branch=master
-[travis-url]: https://travis-ci.com/vlsergey/react-bootstrap-csv-export
+[ci-image]: https://github.com/vlsergey/react-bootstrap-csv-export/actions/workflows/node.js.yml/badge.svg?branch=master
+[ci-url]: https://github.com/vlsergey/react-bootstrap-csv-export/actions/workflows/node.js.yml
 [downloads-image]: http://img.shields.io/npm/dm/@vlsergey/react-bootstrap-csv-export.svg?style=flat-square
 [downloads-url]: https://npmjs.org/package/@vlsergey/react-bootstrap-csv-export
