@@ -60,7 +60,6 @@ To use out-of-the-box export-to-csv modal form:
 import React, {useCallback, useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import SyntaxHighlighter from 'react-syntax-highlighter';
 
 import {ExportToCsvModal} from '@vlsergey/react-bootstrap-csv-export';
 
