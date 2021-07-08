@@ -18,7 +18,7 @@
     "@types/react-syntax-highlighter": "^13.5.0",
     "@vlsergey/js-config": "^6.0.0",
     "@vlsergey/react-bootstrap-error-boundary": "^2.1.0",
-    "@vlsergey/react-bootstrap-pagetable": "file:..",
+    "@vlsergey/react-bootstrap-csv-export": "file:..",
     "autoprefixer": "^10.2.6",
     "bootstrap": "^4.6.0",
     "clean-webpack-plugin": "^4.0.0-alpha.0",

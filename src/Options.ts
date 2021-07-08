@@ -1,14 +1,12 @@
 import Field from './Field';
 import Page from './Page';
+import UserOptions from './UserOptions';
 
-interface Options<T> {
+interface Options<T> extends UserOptions {
   fetchPage: (page: number) => Promise<Page<T>>;
   fields: Field<T, unknown>[];
   fileName: string;
-  header: boolean;
   limit?: number;
-  newline: '\n' | '\r\n';
-  separator: ';' | ',' | '\t';
 }
 
 export default Options;

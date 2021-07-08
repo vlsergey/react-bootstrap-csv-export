@@ -56,8 +56,9 @@ module.exports = {
         loader: 'ts-loader',
         options: {
           compilerOptions: {
-            "declaration": mode == 'development',
-            "declarationMap": mode == 'development',
+            declaration: mode == 'development',
+            declarationMap: mode == 'development',
+            target: mode == 'development' ? 'es2020' : 'es6',
           },
         },
       },
@@ -68,7 +69,6 @@ module.exports = {
     alias: {
         'react': path.resolve(__dirname, '../node_modules/react'),
         'react-dom': path.resolve(__dirname, '../node_modules/react-dom'),
-        'react-router': path.resolve(__dirname, '../node_modules/react-router'),
     },
     extensions: [".tsx", ".ts", ".js"],
     fallback: {

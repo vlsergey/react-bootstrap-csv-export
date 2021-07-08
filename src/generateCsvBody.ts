@@ -40,7 +40,7 @@ export default async function generateContent<T> (
     pageNumber++;
 
     const page: Page<T> = await options.fetchPage(pageNumber);
-    lastPage = page.totalPages == page.number;
+    lastPage = page.number >= page.totalPages;
 
     const items: T[] = page.content;
     const lines: string[] = items.map((item: T) =>

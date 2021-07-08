@@ -18,22 +18,24 @@ export default async function generateCsv<T> (
   const fileName = options.fileName;
   const csvStream = streamsaver.createWriteStream(fileName);
   const csvWriter = csvStream.getWriter();
+  try {
+    // UTF-8 BOM (byte order mark)
+    await csvWriter.write(Uint8Array.of(0xEF, 0xBB, 0xBF));
 
-  // UTF-8 BOM (byte order mark)
-  await csvWriter.write(Uint8Array.of(0xEF, 0xBB, 0xBF));
+    if (options.header) {
+      const header = generateCsvHeader(options);
+      await csvWriter.write(encode(header));
+    }
+    onProgress(2, progressMax);
 
-  if (options.header) {
-    const header = generateCsvHeader(options);
-    await csvWriter.write(encode(header));
+    let done = 0;
+    await generateCsvBody(options, async (totalElements: number, line: string) => {
+      await csvWriter.write(encode(line));
+      onProgress(3 + done++, 4 + totalElements);
+    });
+  } finally {
+    await csvWriter.close();
   }
-  onProgress(2, progressMax);
-
-  let done = 0;
-  await generateCsvBody(options, async (totalElements: number, line: string) => {
-    await csvWriter.write(encode(line));
-    onProgress(3 + done++, 4 + totalElements);
-  });
-  await csvWriter.close();
 
   onProgress(progressMax, progressMax);
 }
