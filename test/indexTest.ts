@@ -1,7 +1,7 @@
-import { assert } from 'chai';
+import {assert} from 'chai';
 
-describe("index", () => {
-  it ("just a mock", () => {
+describe('index', () => {
+  it('just a mock', () => {
     assert.equal(true, true);
   });
 });

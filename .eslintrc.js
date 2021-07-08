@@ -1,13 +1,16 @@
-/* eslint-disable */
-const imported = require( '@vlsergey/js-config' ).eslint;
+/* eslint-disable-next-line */
 module.exports = {
-  ...imported,
   parserOptions: {
-    ...imported,
-    project: [ './tsconfig.json', './src/tsconfig.json', './test/tsconfig.json' ],
+    project: [
+      './tsconfig.json',
+      './src/tsconfig.json',
+      './test/tsconfig.json',
+      './demo/tsconfig.json',
+      './demo/src/tsconfig.json',
+    ],
   },
+  extends: [ './node_modules/@vlsergey/js-config/src/eslint' ],
   rules: {
-    ...imported.rules,
-    'import/no-unused-modules': 0,
+    '@typescript-eslint/no-unused-vars': [ 'error', {varsIgnorePattern: 'jsx'} ],
   },
 };
