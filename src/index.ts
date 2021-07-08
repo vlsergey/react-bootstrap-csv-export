@@ -1,5 +1,6 @@
 import DefaultUserOptions from './DefaultUserOptions';
 import ExportToCsvForm from './ExportToCsvForm';
+import ExportToCsvModal from './ExportToCsvModal';
 import Field from './Field';
 import generateCsv from './generateCsv';
 import Options from './Options';
@@ -9,6 +10,7 @@ import UserOptionsFormPart from './UserOptionsFormPart';
 
 export {DefaultUserOptions};
 export {ExportToCsvForm};
+export {ExportToCsvModal};
 export {Field};
 export {generateCsv};
 export {Options};

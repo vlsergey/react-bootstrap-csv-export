@@ -1,9 +1,6 @@
-import React from 'react';
-import Container from 'react-bootstrap/Container';
+import {Page} from '../../src';
 
-import {ExportToCsvForm, Page} from '../../src';
-
-function sleep (ms: number): Promise< unknown > {
+export function sleep (ms: number): Promise< unknown > {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
@@ -13,7 +10,7 @@ export interface ExampleItemType {
   birthday: string;
 }
 
-const ExampleData: ExampleItemType[] = [
+export const ExampleData: ExampleItemType[] = [
   {id: '1', name: 'Alice', birthday: '2001-02-03'},
   {id: '2', name: 'Bob', birthday: '2002-03-04'},
   {id: '3', name: 'Carl', birthday: '2003-04-05'},
@@ -23,7 +20,13 @@ const ExampleData: ExampleItemType[] = [
   {id: '7', name: 'Helen', birthday: '2007-08-09'}
 ];
 
-async function fetchPageImpl (page: number): Promise<Page<ExampleItemType>> {
+export const ExampleFields = [
+  {key: 'id'},
+  {key: 'name'},
+  {key: 'birthday'},
+];
+
+export async function fetchPageImpl (page: number): Promise<Page<ExampleItemType>> {
 
   // so we can see progress un UI
   await sleep(300);
@@ -42,21 +45,4 @@ async function fetchPageImpl (page: number): Promise<Page<ExampleItemType>> {
     totalPages: ExampleData.length,
     totalElements: ExampleData.length
   });
-}
-
-export default function Demo (): JSX.Element {
-
-  const fields = [
-    {key: 'id'},
-    {key: 'name'},
-    {key: 'birthday'},
-  ];
-
-  return <Container>
-    <p>Please note that there is an artificial pause in 300ms per row so one can see export progress change in UI. It is not a perfomance issue but for demo convenience.</p>
-    <ExportToCsvForm
-      fetchPage={fetchPageImpl}
-      fields={fields}
-      fileName="test.csv" />
-  </Container>;
 }

@@ -22,7 +22,7 @@ or
 npm install --save-dev @vlsergey/react-bootstrap-csv-export
 ```
 
-## Usage
+## Usage as part of the page
 To include export-to-csv form to modal window or distinct page:
 
 ```jsx
@@ -38,11 +38,11 @@ async function fetchPageImpl( page: number ) : Promise<Page<MyType>> {
     totalPages: /*...*/,
   };
 }
+const fields = [{key: 'id'}, {key: 'name'}, {key: 'birthday'},];
 
 /* ... */
 
 export default function Demo (): JSX.Element {
-  const fields = [{key: 'id'}, {key: 'name'}, {key: 'birthday'},];
 
   return <Container>
     <ExportToCsvForm
@@ -52,6 +52,51 @@ export default function Demo (): JSX.Element {
   </Container>;
 }
 ```
+
+## Usage as modal
+To use out-of-the-box export-to-csv modal form:
+
+```jsx
+import React, {useCallback, useState} from 'react';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+
+import {ExportToCsvModal} from '@vlsergey/react-bootstrap-csv-export';
+
+/* ... */
+
+async function fetchPageImpl( page: number ) : Promise<Page<MyType>> {
+  /* define how to fetch page of MyType */
+  return {
+    content: /*...*/ as MyType[],
+    number: page,
+    totalElements: /*...*/,
+    totalPages: /*...*/,
+  };
+}
+
+const fields = [{key: 'id'}, {key: 'name'}, {key: 'birthday'},];
+
+export default function FormDemo (): JSX.Element {
+
+  const [ show, setShow ] = useState<boolean>(false);
+  const handleShow = useCallback(() => setShow(true), [ setShow ]);
+  const handleHide = useCallback(() => setShow(false), [ setShow ]);
+
+  return <Container>
+    <ExportToCsvModal
+      fetchPage={fetchPageImpl}
+      fields={fields}
+      fileName="test.csv"
+      onHide={handleHide}
+      show={show} />
+    <Button onClick={handleShow}>Export to CSV</Button>
+  </Container>;
+}
+
+```
+
 
 [npm-image]: https://img.shields.io/npm/v/@vlsergey/react-bootstrap-csv-export.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/@vlsergey/react-bootstrap-csv-export
