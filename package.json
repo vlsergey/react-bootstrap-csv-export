@@ -40,6 +40,7 @@
   },
   "homepage": "https://github.com/vlsergey/react-bootstrap-csv-export#readme",
   "dependencies": {
+    "@vlsergey/react-bootstrap-button-with-spinner": "^1.3.0",
     "streamsaver": "^2.0.5",
     "tslib": "^2.2.0"
   },

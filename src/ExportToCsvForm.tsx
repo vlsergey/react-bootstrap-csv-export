@@ -1,6 +1,6 @@
+import Button from '@vlsergey/react-bootstrap-button-with-spinner';
 import React, {useCallback, useState} from 'react';
 import Alert from 'react-bootstrap/Alert';
-import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Row from 'react-bootstrap/Row';
@@ -33,7 +33,7 @@ function ExportToCsvForm<T> ({
   const [ progress, setProgress ] = useState(0);
   const [ progressMax, setProgressMax ] = useState(100);
 
-  const doGenerate = useCallback(() => void (async () => {
+  const doGenerate = useCallback(async () => {
     setError(null);
     setInProgress(true);
     setProgress(0);
@@ -57,7 +57,7 @@ function ExportToCsvForm<T> ({
       setInProgress(false);
       setRetry(true);
     }
-  })(), [ fetchPage, fields, fileName, setProgress, setProgressMax, userOptions ]);
+  }, [ fetchPage, fields, fileName, setProgress, setProgressMax, userOptions ]);
 
   return <>
     <Row><Col>

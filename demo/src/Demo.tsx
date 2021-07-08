@@ -53,6 +53,7 @@ export default function Demo (): JSX.Element {
   ];
 
   return <Container>
+    <p>Please note that there is an artificial pause in 300ms per row so one can see export progress change in UI. It is not a perfomance issue but for demo convenience.</p>
     <ExportToCsvForm
       fetchPage={fetchPageImpl}
       fields={fields}
