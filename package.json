@@ -1,6 +1,6 @@
 {
   "name": "@vlsergey/react-bootstrap-csv-export",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Ready to use CSV exporter components with settings form and progress indicator",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
