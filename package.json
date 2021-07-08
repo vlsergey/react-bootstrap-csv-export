@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Ready to use CSV exporter components with settings form and progress indicator",
   "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
   "scripts": {
     "clean": "rimraf lib/",
     "build": "cross-env NODE_ENV=production tsc -p ./src/tsconfig-cjs.json && cross-env NODE_ENV=production tsc -p ./src/tsconfig-esm.json",
@@ -26,7 +27,11 @@
     "csv",
     "export",
     "settings",
-    "form"
+    "form",
+    "react",
+    "bootstrap",
+    "async",
+    "vlsergey"
   ],
   "author": "Sergey Vladimirov <vlsergey@gmail.com>",
   "license": "MIT",
@@ -34,15 +39,24 @@
     "url": "https://github.com/vlsergey/react-bootstrap-csv-export/issues"
   },
   "homepage": "https://github.com/vlsergey/react-bootstrap-csv-export#readme",
+  "dependencies": {
+    "streamsaver": "^2.0.5",
+    "tslib": "^2.2.0"
+  },
   "devDependencies": {
     "@types/streamsaver": "^2.0.1",
     "@vlsergey/js-config": "^6.0.0",
     "eslint-watch": "^7.0.0",
+    "eslint-webpack-plugin": "^2.5.4",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2"
   },
-  "dependencies": {
-    "streamsaver": "^2.0.5"
+  "peerDependencies": {
+    "@fortawesome/fontawesome-free": ">=5",
+    "prop-types": ">=15.7",
+    "react": ">16.8",
+    "react-bootstrap": ">=1",
+    "react-dom": ">16.8"
   }
 }
