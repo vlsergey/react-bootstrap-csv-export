@@ -3,7 +3,7 @@ export default function escape (obj: unknown): string {
     return '';
   }
 
-  const str: string = obj.toString();
+  const str = String(obj);
   const escaped: string = str.replace(/"/g, '""');
   return `"${escaped}"`;
 }
