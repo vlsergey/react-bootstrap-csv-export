@@ -11,7 +11,7 @@ module.exports = {
     describe: true,
     it: true,
   },
-  plugins: [ 'promise' ],
+  plugins: ['promise'],
 
   rules: {
     /* JSX props should not use arrow functions */

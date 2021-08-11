@@ -12,7 +12,7 @@ export default async function generateContent<T> (
   const getters = [] as ValueToPlain<T>[];
   options.fields.forEach(field => {
     const {getter, key, toPlain} = field;
-    const actualGetter = getter || ((item: T) => (item as Record<string, unknown>)[ key ]);
+    const actualGetter = getter || ((item: T) => (item as Record<string, unknown>)[key]);
     const actualToPlain = toPlain || ((value: unknown): null | number | string => {
       if (value === null || value === undefined) {
         return null;

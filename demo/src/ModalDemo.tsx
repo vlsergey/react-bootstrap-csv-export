@@ -8,9 +8,9 @@ import {ExampleFields, fetchPageImpl} from './ExampleData';
 
 export default function FormDemo (): JSX.Element {
 
-  const [ show, setShow ] = useState<boolean>(false);
-  const handleShow = useCallback(() => setShow(true), [ setShow ]);
-  const handleHide = useCallback(() => setShow(false), [ setShow ]);
+  const [show, setShow] = useState<boolean>(false);
+  const handleShow = useCallback(() => { setShow(true); }, [setShow]);
+  const handleHide = useCallback(() => { setShow(false); }, [setShow]);
 
   return <Container>
     <p>Please note that there is an artificial pause in 300ms per row so one can see export progress change in UI. It is not a perfomance issue but for demo convenience.</p>

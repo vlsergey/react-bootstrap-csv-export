@@ -34,17 +34,17 @@ function UserOptionsFormPart ({
   const handleChange = useCallback(({currentTarget}: React.ChangeEvent<HTMLInputElement>) => {
     onChange({
       ...value,
-      [ currentTarget.name ]: html_value_to_value[ currentTarget.value ] || currentTarget.value,
+      [currentTarget.name]: html_value_to_value[currentTarget.value] || currentTarget.value,
     } as unknown as UserOptions);
-  }, [ onChange, value ]);
+  }, [onChange, value]);
 
   const handleTrigger = useCallback(({currentTarget: {name, checked}}: React.ChangeEvent<HTMLInputElement>) => {
     const fieldName = name as 'header';
     onChange({
       ...value,
-      [ fieldName ]: checked
+      [fieldName]: checked
     });
-  }, [ onChange, value ]);
+  }, [onChange, value]);
 
   return <>
     <Form.Group>
@@ -64,7 +64,7 @@ function UserOptionsFormPart ({
         id={`${idPrefix}separator`}
         name="separator"
         onChange={handleChange}
-        value={value_to_html_value[ value.separator ] || value.separator}>
+        value={value_to_html_value[value.separator] || value.separator}>
         <option value=",">Colon “,”</option>
         <option value="t">Tab “\t”</option>
         <option value=";">Semicolon “;”</option>
@@ -78,7 +78,7 @@ function UserOptionsFormPart ({
         id={`${idPrefix}newline`}
         name="newline"
         onChange={handleChange}
-        value={value_to_html_value[ value.newline ] || value.newline}>
+        value={value_to_html_value[value.newline] || value.newline}>
         <option value={'rn'}>Windows-style “\r\n”</option>
         <option value={'n'}>*nix-style “\n”</option>
         <option value={'r'}>Mac-style “\r”</option>

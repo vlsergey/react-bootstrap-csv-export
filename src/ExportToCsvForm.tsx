@@ -25,13 +25,13 @@ function ExportToCsvForm<T> ({
   fields,
   fetchPage,
 }: PropsType<T>) {
-  const [ userOptions, setUserOptions ] = useState<UserOptions>(DefaultUserOptions);
+  const [userOptions, setUserOptions] = useState<UserOptions>(DefaultUserOptions);
 
-  const [ retry, setRetry ] = useState<boolean>(false);
-  const [ error, setError ] = useState<unknown>(null);
-  const [ inProgress, setInProgress ] = useState<boolean>(false);
-  const [ progress, setProgress ] = useState(0);
-  const [ progressMax, setProgressMax ] = useState(100);
+  const [retry, setRetry] = useState<boolean>(false);
+  const [error, setError] = useState<unknown>(null);
+  const [inProgress, setInProgress] = useState<boolean>(false);
+  const [progress, setProgress] = useState(0);
+  const [progressMax, setProgressMax] = useState(100);
 
   const doGenerate = useCallback(async () => {
     setError(null);
@@ -57,7 +57,7 @@ function ExportToCsvForm<T> ({
       setInProgress(false);
       setRetry(true);
     }
-  }, [ fetchPage, fields, fileName, setProgress, setProgressMax, userOptions ]);
+  }, [fetchPage, fields, fileName, setProgress, setProgressMax, userOptions]);
 
   return <>
     <Row><Col>
