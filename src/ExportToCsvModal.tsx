@@ -105,4 +105,4 @@ function ExportToCsvModal<T> ({
   </Modal>;
 }
 
-export default React.memo(ExportToCsvModal);
+export default React.memo(ExportToCsvModal) as typeof ExportToCsvModal;
