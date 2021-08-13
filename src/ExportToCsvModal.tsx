@@ -15,7 +15,8 @@ import UserOptionsFormPart from './UserOptionsFormPart';
 
 interface PropsType<T> {
   fileName: string;
-  fields: Field<T, unknown>[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  fields: Field<T, any>[];
   fetchPage: (page: number) => Promise<Page<T>>;
   idPrefix?: string;
   modalHeader?: ReactNode;

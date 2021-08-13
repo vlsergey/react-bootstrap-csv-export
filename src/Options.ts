@@ -4,7 +4,8 @@ import UserOptions from './UserOptions';
 
 interface Options<T> extends UserOptions {
   fetchPage: (page: number) => Promise<Page<T>>;
-  fields: Field<T, unknown>[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  fields: Field<T, any>[];
   fileName: string;
   limit?: number;
 }
